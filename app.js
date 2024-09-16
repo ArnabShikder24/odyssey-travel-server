@@ -12,7 +12,6 @@ const xss = require('xss-clean')
 const bodyParser = require('body-parser')
 // Security module implement
 
-  
 app.use(cors())
 app.use(helmet())
 app.use(hpp())
