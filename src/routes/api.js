@@ -4,6 +4,7 @@ const ExampleController = require('../controllers/ExampleController');
 const { createUser, getAllUsers } = require('../controllers/userController');
 const { createPack, getAllPack, deletePackById, updatePack, getPackById } = require('../controllers/PackagesController');
 const { createHotel, getAllHotels, getHotelById, deleteHotelById } = require('../controllers/HotelCOntroller');
+const { createFlight, getAllFlights, getFlightById, deleteFlightById } = require('../controllers/FlightsController');
 
 router.get("/example", ExampleController.example);
 
@@ -23,6 +24,12 @@ router.post("/hotel/create", createHotel);
 router.get("/hotels", getAllHotels);
 router.get("/hotelsbyid", getHotelById);
 router.get("/hotel/delete", deleteHotelById);
+
+// Flights Routes
+router.post("/flight/create", createFlight);
+router.get("/flights", getAllFlights);
+router.get("/flight", getFlightById);
+router.delete("/flight/delete", deleteFlightById);
 
 
 module.exports = router;
