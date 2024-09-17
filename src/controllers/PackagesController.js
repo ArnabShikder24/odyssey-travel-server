@@ -77,23 +77,23 @@ exports.updatePack = (req, res) => {
 
   const parsedPrice = parseFloat(price);
 
-  const sql = `UPDATE products 
-                  SET name=?, details=?, price=?
+  const sql = `UPDATE packages 
+                  SET name=?, details=?, price=?, img_url=?
                   WHERE package_id=?`;
   const values = [name, details, parsedPrice, img_url, package_id];
 
   db.query(sql, values, (err, result) => {
       if (err) {
-          console.error("Error updating product:", err);
-          return res.status(500).json({ message: "Failed to update product" });
+          console.error("Error updating packages:", err);
+          return res.status(500).json({ message: "Failed to update packages" });
       }
 
       if (result.affectedRows === 0) {
-          return res.status(404).json({ message: "Product not found" });
+          return res.status(404).json({ message: "packages not found" });
       }
 
-      console.log("Product updated successfully");
-      res.status(200).json({ message: "Product updated successfully" });
+      console.log("packages updated successfully");
+      res.status(200).json({ message: "packages updated successfully" });
   });
 };
 
