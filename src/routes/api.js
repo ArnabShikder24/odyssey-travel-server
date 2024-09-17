@@ -5,6 +5,7 @@ const { createUser, getAllUsers } = require('../controllers/userController');
 const { createPack, getAllPack, deletePackById, updatePack, getPackById } = require('../controllers/PackagesController');
 const { createHotel, getAllHotels, getHotelById, deleteHotelById } = require('../controllers/HotelCOntroller');
 const { createFlight, getAllFlights, getFlightById, deleteFlightById } = require('../controllers/FlightsController');
+const { createTourGuide, getAllTourGuides, getTourGuideById, deleteTourGuideById } = require('../controllers/GuidesController');
 
 router.get("/example", ExampleController.example);
 
@@ -29,7 +30,13 @@ router.get("/hotel/delete", deleteHotelById);
 router.post("/flight/create", createFlight);
 router.get("/flights", getAllFlights);
 router.get("/flight", getFlightById);
-router.delete("/flight/delete", deleteFlightById);
+router.get("/flight/delete", deleteFlightById);
+
+// Tour Guide routes
+router.post("/tour_guide/create", createTourGuide);
+router.get("/tour_guides", getAllTourGuides);
+router.get("/tour_guide", getTourGuideById);
+router.get("/tour_guide/delete", deleteTourGuideById);
 
 
 module.exports = router;
