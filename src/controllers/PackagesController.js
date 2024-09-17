@@ -4,19 +4,20 @@ exports.createPack = (req, res) => {
     const { name, details, price, img_url } = req.body;
 
     const parsedPrice = parseFloat(price);
-    
-    const sql = `INSERT INTO packages (name, details, price, img_url) VALUES ('${name}', '${details}', '${parsedPrice}', '${img_url}')`;
 
-    db.query(sql, (err, result) => {
+    const sql = `INSERT INTO packages (name, details, price, img_url) VALUES (?, ?, ?, ?)`;
+
+    db.query(sql, [name, details, parsedPrice, img_url], (err, result) => {
         if (err) {
             console.error("Error creating Package:", err);
             return res.status(500).json({ message: "Failed to create Package" });
         }
 
         console.log("Package created successfully");
-        res.status(201).json({ message: "Package created successfully"});
+        res.status(201).json({ message: "Package created successfully" });
     });
 };
+
 
 exports.getAllPack = (req, res) => {
   const sql = "SELECT * FROM packages";
