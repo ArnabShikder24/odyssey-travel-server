@@ -10,7 +10,7 @@ router.get("/example", ExampleController.example);
 router.post("/user/create", createUser);
 router.get("/users", getAllUsers);
 router.post("/pack/create", createPack);
-router.get("/pack/create", getAllPack);
+router.get("/pack", getAllPack);
 
 
 module.exports = router;
